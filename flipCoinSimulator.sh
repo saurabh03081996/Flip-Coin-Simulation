@@ -17,10 +17,29 @@ do
 	then
 		echo "It's head..."
 		(( headCount++ ))
+		if [[ $headCount -gt 20 ]]
+		then
+			break
+		fi
 	else
 		echo "It's Tail..."
 		(( tailCount++ ))
+		if [[ $tailCount -gt 20 ]]
+		then
+			break
+		fi
 	fi
 done
 echo "No of time head : " $headCount
 echo "No of time tail : " $tailCount 
+
+if [[ $headCount > $tailCount ]]
+then
+	echo "There are $(( $headCount - $tailCount )) more heads than tails."
+elif [[ $headCount < $tailCount ]]
+then
+        echo "There are $(( $tailCount - $headCount )) more tails than heads."
+else
+	echo "There is tie..."
+fi
+
