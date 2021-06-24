@@ -28,7 +28,12 @@ do
 		then
 			break
 		fi
+
 	fi
+if [[ $headCount -eq $tailCount ]]
+then
+	continue
+fi
 done
 echo "No of time head : " $headCount
 echo "No of time tail : " $tailCount 
